@@ -13,10 +13,9 @@ public class Program {
 
     public static void main(String[] args) {
 
-        Department obj = new Department(1, "books");
-        System.out.println(obj);
-
         SellerDAO sellerDAO = DAOFactory.createSellerDAO();
-        System.out.println(sellerDAO);
+
+        Seller seller = sellerDAO.findById(1);
+        System.out.println(seller);
     }
 }
