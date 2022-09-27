@@ -78,21 +78,26 @@ Create table seller(
 
 
 Insert into department (Id, Name) VALUES (1, 'Financeiro');
+
 Insert into department (Id, Name) VALUES (2, 'Comercial');
+
 Insert into department (Id, Name) VALUES (3, 'PCM');
 
 Insert into seller 
 (Name, Email, BirthDate, BaseSalary, DepartmentId) 
 VALUES ('Maria Cunha', 'maria@gmail.com', 01/01/2000, 2000.0, 1);
+
 Insert into seller 
 (Name, Email, BirthDate, BaseSalary, DepartmentId) 
 VALUES ('José Silva', 'jSilva@gmail.com', 01/08/1997, 6000.0, 3);
+
 Insert into seller 
 (Name, Email, BirthDate, BaseSalary, DepartmentId) 
 VALUES ('Antonio Siqueira', 'tony@gmail.com', 19/04/1987, 5000.0, 3);
+
 Insert into seller 
 (Name, Email, BirthDate, BaseSalary, DepartmentId) 
-VALUES ('Jessika Toledo', 'jeska@gmail.com', 20/04/1998, 3000.0, 2);
+VALUES ('Jessica Toledo', 'jeska@gmail.com', 20/04/1998, 3000.0, 2);
 
 
 
