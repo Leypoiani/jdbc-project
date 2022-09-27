@@ -8,6 +8,8 @@ import model.entities.Seller;
 
 import java.sql.Connection;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Program {
 
@@ -17,5 +19,13 @@ public class Program {
         System.out.println("-- TEST 1: findByID --");
         Seller seller = sellerDAO.findById(1);
         System.out.println(seller);
+
+        System.out.println("-- TEST 2: findByDepartment --");
+        Department department = new Department(2, null);
+        List<Seller> list = sellerDAO.findByDepartment(department);
+        for (Seller obj : list) {
+            System.out.println(obj);
+        }
+
     }
 }
