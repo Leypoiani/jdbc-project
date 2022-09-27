@@ -1,14 +1,11 @@
 package application;
 
-import db.DB;
 import model.DAO.DAOFactory;
 import model.DAO.SellerDAO;
 import model.entities.Department;
 import model.entities.Seller;
-
-import java.sql.Connection;
-import java.sql.Date;
-import java.util.ArrayList;
+;
+import java.util.Date;
 import java.util.List;
 
 public class Program {
@@ -32,6 +29,12 @@ public class Program {
         for (Seller obj : list) {
             System.out.println(obj);
         }
+        System.out.println();
+        System.out.println("-- TEST 4: seller insert --");
+        Seller sel = new Seller(null, "Greg", "gerg@gmail.com", new Date(), 4000.00, department);
+        sellerDAO.insert(sel);
+        System.out.println("Inserted.");
+        System.out.println("New id = " + sel.getId());
 
     }
 }
