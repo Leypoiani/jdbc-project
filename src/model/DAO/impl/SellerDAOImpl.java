@@ -10,6 +10,7 @@ import model.entities.Seller;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public class SellerDAOImpl implements SellerDAO {
@@ -47,16 +48,8 @@ public class SellerDAOImpl implements SellerDAO {
             st.setInt(1, id);
             rs = st.executeQuery();
             if (rs.next()) {
-                Department department = new Department();
-                department.setId(rs.getInt("DepartmentId"));
-                department.setName(rs.getString("DepName"));
-                Seller obj = new Seller();
-                obj.setId(rs.getInt("Id"));
-                obj.setName(rs.getString("Name"));
-                obj.setEmail(rs.getString("Email"));
-                obj.setBaseSalary(rs.getDouble("BaseSalary"));
-                obj.setBithDate(rs.getDate("BirthDate"));
-                obj.setDepartment(department);
+                Department department = instantiateDepartment(rs);
+                Seller obj = instantiateSeller(rs, department);
                 return obj;
             }
             return null;
@@ -67,6 +60,26 @@ public class SellerDAOImpl implements SellerDAO {
             DB.closeResultSet(rs);
         }
 
+    }
+
+    private Seller instantiateSeller(ResultSet rs, Department department) throws SQLException {
+        Seller obj = new Seller();
+        obj.setId(rs.getInt("Id"));
+        obj.setName(rs.getString("Name"));
+        obj.setEmail(rs.getString("Email"));
+        obj.setBaseSalary(rs.getDouble("BaseSalary"));
+        obj.setBithDate(rs.getDate("BirthDate"));
+        obj.setDepartment(department);
+
+        return obj;
+    }
+
+    private Department instantiateDepartment(ResultSet rs) throws SQLException {
+        Department department = new Department();
+        department.setId(rs.getInt("DepartmentId"));
+        department.setName(rs.getString("DepName"));
+
+        return department;
     }
 
     @Override
