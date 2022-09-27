@@ -94,7 +94,6 @@ public class SellerDAOImpl implements SellerDAO {
         }finally {
             DB.closeStatement(st);
         }
-
     }
 
     @Override
